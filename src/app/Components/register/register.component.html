@@ -1,0 +1,68 @@
+<div class="py-5">
+    <h1 class="text-center pb-5"> Register</h1>
+    <form (ngSubmit)="register(user)" [formGroup]="user">
+        <div class="row gy-3 pb-5">
+        <div class="col-md-8 m-auto">
+          <div class="row bg-light shadow p-4">
+            <div class="col-md-12 ">
+                <p *ngIf="apiError" class="alert alert-danger">{{apiError}}</p>
+            </div>
+            <div class="col-md-12">
+                <label for="name" class="form-label">Name</label>
+              
+                <input type="text" name="Name" class="form-control md-2" formControlName="name" placeholder="Enter your name " id="name" >
+                <div *ngIf="user.get('name')?.errors && user.get('name')?.touched">
+                    <p *ngIf="user.get('name')?.getError('required')"class='text-danger'> Name is required</p>
+                    <p *ngIf="user.get('name')?.getError('pattern')"class='text-danger'> Name must be a letter  </p>
+                 
+                   
+                </div>
+            </div>
+            <div class="col-md-12">
+                <label for="email" class="form-label">Email</label>
+              
+                <input type="email" name="email" class="form-control md-2"formControlName="email" placeholder="Enter your Email" id="email"  >
+                <div *ngIf="user.get('email')?.errors&& user.get('email')?.touched">
+                    <p *ngIf="user.get('email')?.getError('required')"class='text-danger'>Email is required</p>
+                    <p *ngIf="user.get('email')?.getError('email')"class='text-danger'> Enter avalid email</p>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <label for="Phone" class="form-label">Phone</label>
+              
+                <input type="tel" name="Phone" class="form-control md-2"formControlName="phone" placeholder="Enter you Phone" id="Phone" >
+                <div *ngIf="user.get('phone')?.errors&& user.get('phone')?.touched">
+                    <p *ngIf="user.get('phone')?.getError('required')"class='text-danger'>phone is required</p>
+                    <p *ngIf="user.get('phone')?.getError('pattern')"class='text-danger'> Enter a number starting with 01 ,for example <sub>01(0215)00000000 </sub></p>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <label for="Password" class="form-label">Password</label>
+              
+                <input type="password" name="Password" class="form-control md-2"formControlName=password placeholder="Enter you Password" id="Password" >
+                <div *ngIf="user.get('password')?.errors&& user.get('password')?.touched">
+                    <p *ngIf="user.get('password')?.getError('required')"class='text-danger'>password is required</p>
+                    <p *ngIf="user.get('password')?.getError('pattern')"class='text-danger'>Enter password,for example<sub>Sa12356</sub> </p>
+                </div>
+            </div>
+            <div class="col-md-12 pb-2">
+                <label for="Repassword" class="form-label">Repassword</label>
+              
+                <input type="password" name="rePassword" class="form-control md-2"formControlName="rePassword" placeholder=" Enter you Repassword" id="Repassword" >
+                <div *ngIf="user.get('rePassword')?.errors&& user.get('rePassword')?.touched">
+                    <p *ngIf="user.get('rePassword')?.getError('required')"class='text-danger'>rePassword is required</p>
+                    <p *ngIf="user.get('rePassword')?.getError('pattern')"class='text-danger'>   Enter repassword,for example<sub>Sa12356</sub> </p>
+                    <p *ngIf="user.get('rePassword')?.getError('Passwordmatch')"class='text-danger'>   password confirmation </p>
+                </div>
+            </div>
+
+            <div class="col-md-12  text-end">
+                <button type="submit" [disabled]="user.invalid"  class="btn border-none border-0 text-light bg-main ">Register
+                    <span *ngIf="isLoad"><i class='fa-solid text-light m-2  fa-spinner fa-spin'></i></span> </button> 
+                
+                    </div>
+          </div>
+        </div>
+        </div>
+    </form>
+</div>

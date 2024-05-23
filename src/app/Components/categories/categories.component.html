@@ -1,0 +1,12 @@
+<div *ngIf="!isLoading"> <app-loader> </app-loader></div>
+<div class="row  g-2" id="area2">
+    <div class="col-md-3"  *ngFor="let Aree of categorie" [routerLink]="['/MealDetails',Aree.idMeal]">
+        <div class="position-relative info-home">
+            <img  [src]="Aree.strMealThumb            " class="w-100">
+            <div class="info position-absolute text-center text-white ">
+                <b class="position-absolute text-center pb-2 ">{{Aree.
+                    strMeal}}</b>
+            </div>
+        </div>
+        </div>
+</div>

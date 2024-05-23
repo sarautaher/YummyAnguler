@@ -1,0 +1,21 @@
+<div *ngIf="!isLoading"> <app-loader> </app-loader></div>
+<div class="row g-2  py-2">
+    <div class="col-md-3">
+      <img [src]="meal.strMealThumb" class="w-100 pb-2">
+      <h2>{{meal.strMeal}}</h2>
+    </div>
+    <div class="col-md-7">
+      <h2 class="">Instructions</h2>
+      <p class="">{{meal.strInstructions.slice(0,600)}}</p>
+      <h3>Area: {{meal.strArea}}</h3>
+      <h3>Category: {{meal.strCategory}}</h3>
+      <h3>Ingredients:</h3>
+      <ul class="list-unstyled d-flex g-3 flex-wrap">
+     <li class="mx-2" *ngFor="let i of ingredients">  {{i}}</li>
+      <li  class="mx-2"*ngFor="let i of Measures" >{{i}}</li>
+      </ul>
+      <a target="_blank" [href]="meal.strSource" class="btn btn-success mx-4">Source</a>
+      <a target="_blank" [href]="meal.strYoutube" class="btn btn-danger">Youtube</a>
+    </div>
+  </div>
+  

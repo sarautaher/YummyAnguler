@@ -1,0 +1,20 @@
+<div *ngIf="!isLoading"> <app-loader> </app-loader></div>
+<div class="row g-2 py-5 " id="area">
+    <div class="col-md-3" (click)="getaree(Aree.strArea)" *ngFor="let Aree of area">
+    <div class="text-center ">
+        <i class="fa fa-home fa-4x pb-5 fs-3 fw-bold"></i>
+        <h6>{{Aree.strArea}}</h6>
+    </div>
+    </div>
+</div>
+<div class="row d-none g-2" id="area2">
+    <div class="col-md-3"  *ngFor="let Aree of area" [routerLink]="['/MealDetails',Aree.idMeal]">
+        <div class="position-relative info-home">
+            <img  [src]="Aree.strMealThumb            " class="w-100">
+            <div class="info position-absolute text-center text-white ">
+                <b class="position-absolute text-center pb-2 ">{{Aree.
+                    strMeal}}</b>
+            </div>
+        </div>
+        </div>
+</div>

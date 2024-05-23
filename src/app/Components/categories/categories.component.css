@@ -1,17 +1,3 @@
-:root{
-    --main-color:yellow;
-}
-.bg-main{
-    background-color: var(--main-color)!important;
-    color: #000 !important; 
-}
-.text-main{
-    color: yellow;
-}
-.bg-susse{
-    color: yellow!important;
-  
-}
 .info-home{
     overflow: hidden;
 }

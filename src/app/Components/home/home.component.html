@@ -1,0 +1,38 @@
+
+<div>
+    <div *ngIf="!isLoading"> <app-loader> </app-loader></div>
+    <div class="row py-5">
+        <div class="col-md-8 m-auto">
+            <input type="text" class="form-control  m-auto " [(ngModel)]="term" (keyup)="seacrhMyName(term)" placeholder="search by title ........">
+          </div>
+    </div>
+    <div class="row  g-3"id="categorie">
+       
+       
+        <div class="col-md-3" *ngFor="let categorie of categorie" [routerLink]="['/categories',categorie.strCategory]">
+            <div class="position-relative info-home">
+            <img  [src]="categorie.strCategoryThumb" class="w-100">
+            <div class="info position-absolute text-center text-white ">
+                <b class="position-absolute text-center pb-2 ">{{categorie.strCategory}}</b>
+                <p class="position-absolute text-center ">{{categorie.strCategoryDescription.slice(0,100)}}</p>
+            </div>
+        </div>
+        </div>
+    </div>
+        <div class="row  d-none g-3 "  id="categorie2">
+            
+        <div class="col-md-3 " *ngFor="let categorie of categories" [routerLink]="['/categories',categorie.strCategory]">
+            <div class="position-relative info-home">
+               
+            <img  [src]="categorie.strMealThumb" class="w-100">
+            <div class="info position-absolute text-center text-white ">
+                <b class="position-absolute text-center pb-2 ">{{categorie.strCategory  }}</b>
+                <p class="position-absolute text-center ">{{categorie. strInstructions.slice(0,100)}}</p>
+            </div>
+        </div>
+        </div>
+    </div>
+   
+</div>
+
+
